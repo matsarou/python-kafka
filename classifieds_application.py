@@ -1,9 +1,13 @@
 import faust
 
+# The file contains the main application. It starts if you run: faust -A classifieds_application worker -l info
+# The Faust application is responsible for receiving and processing real-time events in infinite streams.
+
 from configuration import APP, KAFKA, PARTITIONS, TIME_WINDOW, TOPIC, BROKER_COMMIT_EVERY, CONSUMER_AUTO_OFFSET_RESET, \
     DT_START_FOR_MARGIN_BY_AD_TYPE, DT_STOP_FOR_MARGIN_BY_AD_TYPE, DT_START_FOR_MARGIN_BY_PAYM_TYPE, \
     DT_STOP_FOR_MARGIN_BY_PAYM_TYPE
 from model import Classified, ClassifiedsTableModel
+
 
 app = faust.App(APP, broker=KAFKA, topic_partitions=PARTITIONS,
                 BROKER_COMMIT_EVERY = BROKER_COMMIT_EVERY,

@@ -4,6 +4,8 @@ import faust
 
 from utils import open_connection
 
+#The file contains the model, which describes the values contained in the data events. By default the serialization format is JSON.
+#The description of the Classified records is also shown here.
 
 class Classified(faust.Record):
     id: str = ''
@@ -15,14 +17,6 @@ class Classified(faust.Record):
     currency: str = 'EUR'
     payment_type: str = 'Offline'
     payment_cost: float = 0.0
-
-
-class MarginModel(faust.Record):
-    timestamp: datetime
-    discriminator: str
-    type: str
-    count: int
-    margin: float
 
 class ClassifiedsTableModel:
     def __init__(self):
