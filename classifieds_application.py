@@ -27,7 +27,7 @@ async def record_classifieds(stream):
 
 from utils import execute_single_query
 @app.timer(interval=TIME_WINDOW)
-async def every_minute():
+async def every_one_hour():
     print('WAKE UP')
     if (DT_START_FOR_MARGIN_BY_AD_TYPE and DT_STOP_FOR_MARGIN_BY_AD_TYPE):
         await execute_single_query("CALL margin_by_ad_type_procedure('" + DT_START_FOR_MARGIN_BY_AD_TYPE + "', '" + DT_STOP_FOR_MARGIN_BY_AD_TYPE + "');")
