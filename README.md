@@ -52,6 +52,7 @@ In the mysql client, run select * from Margin_info;
 ## BEST TO HAVE
 * Create database scripts that can update the configuration properties at the runtime.
 * Save the margins in two distributed tables for fast recovery and fault tolerance
+* Add unit tests with pytest
 * Still did not manage to make the worker run in an infinite loop.
 
 
