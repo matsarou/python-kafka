@@ -1,3 +1,5 @@
+##### Run pip install -r requirements.txt
+
 # Faust
 Faust is a stream processing library, porting the ideas from Kafka Streams to Python.
 It is used to build high performance distributed systems and real-time data pipelines that process billions of events every day.
