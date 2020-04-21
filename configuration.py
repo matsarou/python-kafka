@@ -1,12 +1,12 @@
 # Database configuration
-HOST = 'mtdataengineer.cg2t1fioak49.eu-west-3.rds.amazonaws.com'
+HOST = '127.0.0.1'
 USER = 'root'
-PASSWORD = '6FUfYLHVeKdYTCQVCvnDkeRR'
-DB = 'mtdataengineer'
+PASSWORD = 'M@rouli2'
+DB = 'xedb'
 
 # Kafka configuration
 APP='classifieds_application'
-KAFKA = f'kafka://15.188.172.135'
+KAFKA = f'kafka://localhost:9092'
 TOPIC= 'data'
 PARTITIONS = 1
 

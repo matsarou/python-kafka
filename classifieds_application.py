@@ -13,6 +13,7 @@ app = faust.App(APP, broker=KAFKA, topic_partitions=PARTITIONS,
                 BROKER_COMMIT_EVERY = BROKER_COMMIT_EVERY,
                 CONSUMER_AUTO_OFFSET_RESET=CONSUMER_AUTO_OFFSET_RESET)
 
+# create a topic description
 classified_topic = app.topic(TOPIC, value_type=Classified)
 
 model = ClassifiedsTableModel()
@@ -22,7 +23,7 @@ model = ClassifiedsTableModel()
 async def record_classifieds(stream):
     try:
         # get up to 15 events within a 30 second window:
-        async for message in stream.group_by(Classified.ad_type).take(15, within=30.0):
+        async for message in stream.group_by(Classified.ad_type).take(15, within=5.0):
             await model.start()
             await model.insert_classified(message)
     except faust.exceptions.ValueDecodeError as err:
